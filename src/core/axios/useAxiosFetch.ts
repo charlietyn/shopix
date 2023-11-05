@@ -1,4 +1,4 @@
-import {Axios, AxiosInstance, AxiosRequestConfig, AxiosStatic} from 'axios'
+import {AxiosInstance, AxiosRequestConfig, AxiosStatic} from 'axios'
 import {AxiosOptionsParameter} from "./AxiosOptionsParameter"
 import {useDebounceFn, useToggle, whenever} from '@vueuse/core'
 import {ref, unref} from "vue"

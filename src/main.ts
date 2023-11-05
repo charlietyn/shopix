@@ -19,7 +19,7 @@ app.use(PrimeVue)
 app.use(ToastService).component("Toast", Toast);
 app.use(createPinia())
 const shop = shopStore()
-router.beforeEach((to, from) => {
+router.beforeEach((to) => {
     shop.show_search=to.path.includes('category')
     return true
 })

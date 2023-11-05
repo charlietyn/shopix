@@ -46,7 +46,7 @@
       </a>
     </div>
   </header>
-  <section x-show="mobileMenuOpen" @click.outside="mobileMenuOpen = false"
+  <section
            class="absolute bg-white h-screen left-0 right-0 w-full z-50" style="display:none">
     <div class="mx-auto">
       <div class="flex gap-3 justify-center mx-auto py-4 w-full"><a href="/wishlist.html"
@@ -101,7 +101,7 @@
 <script setup lang="ts">
 import {shopStore} from "../../../../core/store/shop.store"
 import {inject} from "vue"
-let search=inject('search')
+let search:any=inject('search') as any
 const shop=shopStore()
 const count= shop.countCart
 function clear(){

@@ -116,8 +116,8 @@ const toast = useToast()
 onMounted(() => {
   shop.page="Cart"
 })
-function addCart(product, quantity) {
-  shop.addCart(product, quantity)
+function addCart(product:any, quantity:any) {
+  shop.addCart(product as any, quantity as any)
   toast.add({
     severity: "success",
     summary: "Accion completada",
@@ -127,7 +127,7 @@ function addCart(product, quantity) {
   })
 }
 
-function deleteCart(index) {
+function deleteCart(index:number) {
   shop.deleteFromCart(index)
   toast.add({
     severity: "info",

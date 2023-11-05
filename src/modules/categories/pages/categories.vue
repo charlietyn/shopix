@@ -130,11 +130,10 @@ import {shopStore} from "../../../core/store/shop.store"
 import {useRoute} from "vue-router"
 import {capitalizeFirstLetter} from "../../../core/utils"
 import Sidebar_categories from "./sidebar_categories.vue"
-import Skeleton from "primevue/skeleton"
 import Toast from 'primevue/toast'
 import Rating from 'primevue/rating'
 import {useToast} from "primevue/usetoast"
-import {computed, inject, onMounted, onUpdated, ref, watch} from "vue"
+import {computed, inject, onUpdated, ref} from "vue"
 
 const shop=shopStore();
 const route=useRoute();
@@ -143,12 +142,12 @@ const filter_category=ref(route.params.id as string)
 onUpdated(() => {
   filter_category.value=route.params.id as string
 })
-const search=inject('search')
+const search:any=inject('search')
 const listProduct = computed(() => {
- return shop.findProductByCategoryAll(filter_category.value,search.value)
+ return shop.findProductByCategoryAll(filter_category.value as string,search.value as string)
 })
 const toast = useToast()
-function addCart(product){
+function addCart(product:any){
   shop.addCart(product)
   toast.add({
     severity: "success",

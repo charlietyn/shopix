@@ -2,7 +2,7 @@
   <p class="mx-auto mt-10 mb-5 max-w-[1200px] px-5">RECOMMENDED FOR YOU</p>
   <section
       class="mx-auto grid max-w-[1200px] grid-cols-2 gap-3 px-5 pb-10 lg:grid-cols-4">
-    <Skeleton v-if="shop.loadingProducts" v-for="(item,index) in 8" :key="index" class="flex flex-col"
+    <Skeleton v-if="shop.loadingProducts" v-for="(index) in 8" :key="index" class="flex flex-col"
               animation="wave"></Skeleton>
     <div class="flex flex-col" v-for="(item,index) in bestProducts" :key="index">
       <div class="relative flex">
@@ -90,8 +90,8 @@ const shop = shopStore()
 const bestProducts = shop.get_best_products
 const toast=useToast()
 
-function addCart(product){
-  shop.addCart(product)
+function addCart(product:any){
+  shop.addCart(product as any)
   toast.add({
     severity: "success",
     summary: "Accion completada",

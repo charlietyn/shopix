@@ -237,8 +237,8 @@ let product = computed(() => {
 })
 
 
-function addCart(product) {
-  shop.addCart(product, this.countCart.value)
+function addCart(product:any) {
+  shop.addCart(product, countCart.value as number)
   toast.add({
     severity: "success",
     summary: "Accion completada",

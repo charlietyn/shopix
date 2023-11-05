@@ -76,7 +76,6 @@
 <script setup lang="ts">
 import {shopStore} from "../../../core/store/shop.store"
 import Rating from "primevue/rating"
-import Toast from 'primevue/toast'
 import {useToast} from "primevue/usetoast"
 
 const props = defineProps({
@@ -86,9 +85,9 @@ const props = defineProps({
 const toast=useToast()
 
 const shop = shopStore()
-const products_related = shop.findProductByCategory(props.category)
+const products_related = shop.findProductByCategory(props.category as string)
 
-function addCart(product) {
+function addCart(product:any) {
   shop.addCart(product)
   toast.add({
     severity: "success",

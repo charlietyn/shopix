@@ -5,10 +5,7 @@ const axios_api = axios.create({
 })
 axios_api.defaults.headers.common['Access-Control-Allow-Origin'] = '*'
 axios_api.defaults.headers.get['Accepts'] = 'application/json'
-const reqInt = axios_api.interceptors.request.use((config) => {
-  return config
-})
-const respInt = axios_api.interceptors.response.use(
+axios_api.interceptors.response.use(
   (res) => {
     return res
   },
@@ -26,6 +23,4 @@ const respInt = axios_api.interceptors.response.use(
     throw error
   }
 )
-// axios_api.interceptors.request.eject(reqInt)
-// axios_api.interceptors.response.eject(respInt)
 export default axios_api

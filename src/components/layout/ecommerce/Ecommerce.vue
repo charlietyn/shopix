@@ -3,7 +3,7 @@ import EHeader from "./components/EHeader.vue"
 import EMenu from "./components/EMenu.vue"
 import EBreadcumbs from "./components/EBreadcumbs.vue"
 import EFooter from "./components/EFooter.vue"
-import {computed, provide, ref} from "vue"
+import {provide, ref} from "vue"
 
 const search =ref('')
 provide(/* key */ 'search', /* value */ search)

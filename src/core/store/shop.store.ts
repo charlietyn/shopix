@@ -1,7 +1,7 @@
 import {defineStore} from "pinia"
 import axios_api from "../axios/axiosInstance"
 import {useAxiosFetch} from "../axios/useAxiosFetch"
-import {computed, reactive, ref, toRaw, watch} from "vue"
+import {computed, reactive, ref} from "vue"
 
 export const shopStore = defineStore('shop', {
     state: () => ({
@@ -17,11 +17,11 @@ export const shopStore = defineStore('shop', {
     }),
     getters: {
         categories_list(state) {
-            return state.categories_list
+            return state.categories
         },
         get_best_products(state) {
             return computed(() => {
-                return state.products.sort((a, b) => {
+                return state.products.sort((a:any, b:any) => {
                     return a.rating.rate - b.rating.rate
                 }).slice(0, 8)
             })
@@ -43,7 +43,7 @@ export const shopStore = defineStore('shop', {
             this.loadProducts()
             this.loadCategories()
             if (localStorage.getItem('cart'))
-                this.cart = JSON.parse(localStorage.getItem('cart'))
+                this.cart = JSON.parse(localStorage.getItem('cart') as string)
         },
         detailsCategory() {
             return this.categories.map((e) => {
@@ -51,12 +51,12 @@ export const shopStore = defineStore('shop', {
             })
         },
         loadCategories() {
-            const {onResult, loading} = useAxiosFetch(
+            const {onResult} = useAxiosFetch(
                 axios_api,
                 {url: 'products/categories', method: 'get'},
                 {}
             )
-            onResult((result) => {
+            onResult((result:any) => {
                 this.categories = result.data
                 this.loadingCategories = false
             })
@@ -67,15 +67,15 @@ export const shopStore = defineStore('shop', {
                 {url: 'products', method: 'get'},
                 {}
             )
-            onResult((result) => {
+            onResult((result:any) => {
                 this.products = result.data
                 this.loadingProducts = false
             })
         },
-        findProduct(id) {
+        findProduct(id:any) {
             return this.products.find(el => el.id == id)
         },
-        findProductByCategory(category, name = '') {
+        findProductByCategory(category:string) {
             return this.products.filter(el => (el.category == category)).slice(0, 4)
         },
         findProductByCategoryAll(category = 'all', name = '') {
@@ -83,7 +83,7 @@ export const shopStore = defineStore('shop', {
                 return category == 'all' ? (el.title.toLowerCase().includes(name.toLowerCase())) : (el.category == category && el.title.toLowerCase().includes(name.toLowerCase()))
             })
         },
-        addCart(product, quantity = 1) {
+        addCart(product:any, quantity = 1) {
             let pos = -1
             const found = this.cart.find((e, index) => {
                 pos = index
@@ -97,14 +97,14 @@ export const shopStore = defineStore('shop', {
         },
 
         total() {
-            return Math.round(this.cart.map(e => e.price * e.quantity).reduce((a, b) => a + b, 0) * 100) / 100
+            return Math.round(this.cart.map((e:any) => e.price * e.quantity).reduce((a:any, b:any) => a + b, 0) * 100) / 100
         },
-        deleteFromCart(index) {
+        deleteFromCart(index:number) {
             this.cart.splice(index, 1)
         },
         onCartChange() {
             localStorage.setItem('cart', JSON.stringify(this.cart))
-            this.cart = JSON.parse(localStorage.getItem('cart'))
+            this.cart = JSON.parse(localStorage.getItem('cart') as string)
         }
     },
 })

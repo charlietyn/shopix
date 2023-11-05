@@ -1,7 +1,7 @@
 <template>
   <h2 class="mx-auto mb-5 max-w-[1200px] px-5 mt-5">SHOP BY CATHEGORY</h2>
   <section class="mx-auto grid max-w-[1200px] grid-cols-2 px-5 lg:grid-cols-4 gap-5 md mt-5">
-    <Skeleton v-if="shop.loadingCategories"  v-for="(item,index) in 4" :key="index" class="mx-auto !h-52 w-auto" animation="wave"></Skeleton>
+    <Skeleton v-if="shop.loadingCategories"  v-for="(index) in 4" :key="index" class="mx-auto !h-52 w-auto" animation="wave"></Skeleton>
     <a href="#" v-for="(item,index) in shop.categories" :key="index">
       <div class="relative cursor-pointer">
         <img
