@@ -94,8 +94,8 @@ function addCart(product:any){
   shop.addCart(product as any,1)
   toast.add({
     severity: "success",
-    summary: "Accion completada",
-    detail: 'El producto fue añadido correctamente',
+    summary: "Completed Action",
+    detail: 'The product was added succesfully',
     group: "br",
     life: 6000,
   })

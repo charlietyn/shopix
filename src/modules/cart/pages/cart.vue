@@ -120,8 +120,8 @@ function addCart(product:any, quantity:any) {
   shop.addCart(product as any, quantity as any)
   toast.add({
     severity: "success",
-    summary: "Accion completada",
-    detail: 'El producto fue actualizado correctamente',
+    summary: "Completed Action",
+    detail: 'The product was updated successfully',
     group: "br",
     life: 6000,
   })
@@ -132,7 +132,7 @@ function deleteCart(index:number) {
   toast.add({
     severity: "info",
     summary: "Eliminar elemento",
-    detail: 'El producto fue eliminado correctamente',
+    detail: 'The product was remove successfully',
     group: "br",
     life: 6000,
   })
