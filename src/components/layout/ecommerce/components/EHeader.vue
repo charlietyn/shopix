@@ -33,7 +33,7 @@
 </span>
         <p class="text-xs">Cart</p>
       </router-link>
-      <a href="/account-page.html"
+      <a href="javascript:void(0)"
          class="cursor-pointer flex flex-col items-center justify-center relative">
         <span class="absolute bottom-[33px] flex h-2 right-1 w-2"> <span
             class="absolute animate-ping bg-red-400 h-full inline-flex opacity-75 rounded-full w-full"></span> <span
