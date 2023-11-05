@@ -88,7 +88,7 @@ const shop = shopStore()
 const products_related = shop.findProductByCategory(props.category as string)
 
 function addCart(product:any) {
-  shop.addCart(product)
+  shop.addCart(product,1)
   toast.add({
     severity: "success",
     summary: "Accion completada",

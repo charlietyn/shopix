@@ -91,7 +91,7 @@ const bestProducts = shop.get_best_products
 const toast=useToast()
 
 function addCart(product:any){
-  shop.addCart(product as any)
+  shop.addCart(product as any,1)
   toast.add({
     severity: "success",
     summary: "Accion completada",
