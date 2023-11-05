@@ -1,7 +1,7 @@
 <template>
-  <header class="flex h-16 items-center justify-between max-w-[1200px] mx-auto px-5 w-full"><a href="/index.html">
+  <header class="flex h-16 items-center justify-between max-w-[1200px] mx-auto px-5 w-full"><router-link :to="{name:'index'}">
     <img style="width: 123px;height: 36px" class="cursor-pointer sm:h-auto sm:w-auto" src="/public/img/logo/company.png"
-         alt="company logo"> </a>
+         alt="company logo"> </router-link>
     <div class="md:hidden">
       <button >
         <svg fill="none" stroke="currentColor" stroke-width="1.5" class="h-8 w-8" viewBox="0 0 24 24">

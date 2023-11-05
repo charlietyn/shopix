@@ -2,7 +2,7 @@
   <section
       class="container mx-auto flex-grow max-w-[1200px] border-b py-5 lg:flex lg:flex-row lg:py-10"
   >
-  <sidebar_categories/>
+    <sidebar_categories/>
     <div class="w-full">
       <div class="mb-5 flex items-center justify-between px-5">
         <div class="flex gap-3">
@@ -135,19 +135,21 @@ import Rating from 'primevue/rating'
 import {useToast} from "primevue/usetoast"
 import {computed, inject, onUpdated, ref} from "vue"
 
-const shop=shopStore();
-const route=useRoute();
-shop.page="Category -- "+capitalizeFirstLetter(route.params.id as string)
-const filter_category=ref(route.params.id as string)
+const shop = shopStore()
+const route = useRoute()
+
+const filter_category = ref(route.params.id as string)
 onUpdated(() => {
-  filter_category.value=route.params.id as string
+  filter_category.value = route.params.id as string
+  shop.page = "Category -- " + capitalizeFirstLetter(route.params.id as string)
 })
-const search:any=inject('search')
+const search: any = inject('search')
 const listProduct = computed(() => {
- return shop.findProductByCategoryAll(filter_category.value as string,search.value as string)
+  return shop.findProductByCategoryAll(filter_category.value as string, search.value as string)
 })
 const toast = useToast()
-function addCart(product:any){
+
+function addCart(product: any) {
   shop.addCart(product)
   toast.add({
     severity: "success",
