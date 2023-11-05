@@ -2,7 +2,7 @@
   <div class="relative">
     <img
         class="w-full object-cover brightness-50 filter lg:h-[500px]"
-        src="public/img/banner.jpeg"
+        src="/public/img/banner.jpeg"
         alt="Living room image"
     />
 
