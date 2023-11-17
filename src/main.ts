@@ -12,7 +12,6 @@ import {toReactive} from "@vueuse/core"
 import ToastService from 'primevue/toastservice';
 import Toast from "primevue/toast";
 
-
 const app = createApp(App)
 app.use(router)
 app.use(PrimeVue)
